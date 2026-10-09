@@ -1,5 +1,5 @@
 
-const LOOT_URL = 'https://lootdest.org/s?zWYWojtG';
+const LOOT_URL = 'https://loot-link.com/s?hPWDeu13';
 const KEY_STORAGE = 'hoangwer_key_data';
 const CLICK_STORAGE = 'hoangwer_click_id';
 
