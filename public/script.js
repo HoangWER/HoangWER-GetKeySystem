@@ -58,15 +58,10 @@ async function checkStatus(clickId) {
 
   $('status').textContent = '⏳ Chưa nhận được xác nhận hoàn thành từ Lootdest...';
   return false;
-}
-
-async function startLoot() {
-  const r = await fetch('/api/start');
-  const data = await r.json();
-  if (!data.success) throw new Error('Không thể tạo phiên.');
-  localStorage.setItem(CLICK_STORAGE, data.clickId);
-  try { await navigator.clipboard.writeText(LOOT_URL); } catch {}
-  window.open(data.redirectUrl, '_blank', 'noopener');
+try {
+  await navigator.clipboard.writeText(data.redirectUrl);
+} catch {}
+window.open(data.redirectUrl, '_blank', 'noopener');
   $('status').textContent = 'Đã mở Lootdest. Hãy hoàn thành nhiệm vụ rồi quay lại trang này.';
   clearInterval(pollHandle);
   pollHandle = setInterval(() => checkStatus(data.clickId).catch(() => {}), 3000);
