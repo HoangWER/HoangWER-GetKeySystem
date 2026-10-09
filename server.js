@@ -2,7 +2,14 @@ const express = require('express');
 const crypto = require('crypto');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;app.use((req, res, next) => {
+  if (req.path === '/api/start' || req.path === '/api/postback') {
+    console.log(
+      `[REQUEST] ${req.method} ${req.originalUrl}`
+    );
+  }
+  next();
+});
 const LOOT_URL = 'https://lootdest.org/s?zWYWojtG';
 const KEY_TTL = 24 * 60 * 60 * 1000;
 
