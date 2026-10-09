@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;app.use((req, res, next) => {
   }
   next();
 });
-const LOOT_URL = 'https://lootdest.org/s?zWYWojtG';
+const LOOT_URL = 'https://loot-link.com/s?hPWDeu13';
 const KEY_TTL = 24 * 60 * 60 * 1000;
 
 const KEY_POOL = [
